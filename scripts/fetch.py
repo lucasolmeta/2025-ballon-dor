@@ -26,7 +26,9 @@ competitions = [
     'ESP-Copa del Rey','ESP-Supercopa',
     'GER-DFB Pokal','GER-Supercup',
     'ITA-Coppa Italia','ITA-Supercoppa',
-    'FRA-Coupe de France','FRA-Trophee des Champions'
+    'FRA-Coupe de France','FRA-Trophee des Champions',
+    'NED-Eredivisie','NED-KNVB Beker','NED-Johan Cruijff Schaal',
+    'POR-Primeira Liga','POR-Taca de Portugal','POR-Taca da Liga','POR-Supertaca'
 ]
 
 seasons = ['2122','2223','2324','2425']
@@ -57,8 +59,10 @@ for season in seasons:
                 ]
 
                 league_data = stat_data if league_data.empty else pd.merge(
-                    league_data, stat_data, on=['player','season'], how='outer'
+                    league_data, stat_data, on=['player','season'], how='outer', suffixes=('', '_dup')
                 )
+
+                league_data = league_data.loc[:, ~league_data.columns.str.endswith('_dup')]
 
             except Exception:
                 pass
@@ -78,4 +82,4 @@ data = data.loc[:, ~data.columns.duplicated()]
 stat_cols = [c for c in data.columns if c not in ['player', 'season']]
 data = data.dropna(subset=stat_cols, how='all')
 
-data.to_csv('data/data.csv', index=False)
+data.to_csv('data/raw_data.csv', index=False)
