@@ -74,4 +74,8 @@ for season in seasons:
         data = season_data if data.empty else pd.concat([data, season_data], axis=0)
 
 data = data.loc[:, ~data.columns.duplicated()]
-data.to_csv('data/raw_data.csv', index=False)
+
+stat_cols = [c for c in data.columns if c not in ['player', 'season']]
+data = data.dropna(subset=stat_cols, how='all')
+
+data.to_csv('data/data.csv', index=False)
