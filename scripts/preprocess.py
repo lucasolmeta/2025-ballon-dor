@@ -154,4 +154,56 @@ finalists = data.merge(finalists, on=['player','season'], how='inner')
 
 finalists.to_csv('data/finalists.csv', index=False)
 
-finalists['player'].to_csv('data/test')
+outfield_finalists = finalists[~finalists['player'].isin(['Mike Maignan','Andre Onana','Thibaut Courtois','Emiliano Martinez','Yassine Bounou'])]
+
+gk_cols = [
+    "Performance_GA",
+    "Performance_GA90",
+    "Performance_SoTA",
+    "Performance_Saves",
+    "Performance_Save%",
+    "Performance_W",
+    "Performance_D",
+    "Performance_L",
+    "Performance_CS",
+    "Performance_CS%",
+    "Penalty Kicks_PKatt",
+    "Penalty Kicks_PKA",
+    "Penalty Kicks_PKsv",
+    "Penalty Kicks_PKm",
+    "Penalty Kicks_Save%",
+    "Goals_GA",
+    "Goals_PKA",
+    "Goals_FK",
+    "Goals_CK",
+    "Goals_OG",
+    "Expected_PSxG",
+    "Expected_PSxG/SoT",
+    "Expected_PSxG+/-",
+    "Expected_/90",
+    "Launched_Cmp",
+    "Launched_Att",
+    "Launched_Cmp%",
+    "Passes_Att (GK)",
+    "Passes_Thr",
+    "Passes_Launch%",
+    "Passes_AvgLen",
+    "Goal Kicks_Att",
+    "Goal Kicks_Launch%",
+    "Goal Kicks_AvgLen",
+    "Crosses_Opp",
+    "Crosses_Stp",
+    "Crosses_Stp%",
+    "Sweeper_#OPA",
+    "Sweeper_#OPA/90",
+    "Sweeper_AvgDist",
+    "A-xAG",
+    "Rec"
+]
+
+outfield_finalists = outfield_finalists.drop(columns=gk_cols)
+outfield_finalists.to_csv('data/outfield_finalists.csv', index=False)
+
+gk_finalists = finalists[finalists['player'].isin(['Mike Maignan','Andre Onana','Thibaut Courtois','Emiliano Martinez','Yassine Bounou'])]
+gk_finalists = gk_finalists[['player','season'] + gk_cols]
+gk_finalists.to_csv('data/gk_finalists.csv', index=False)
