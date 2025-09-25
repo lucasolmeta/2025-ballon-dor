@@ -207,3 +207,6 @@ outfield_finalists.to_csv('data/outfield_finalists.csv', index=False)
 gk_finalists = finalists[finalists['player'].isin(['Mike Maignan','Andre Onana','Thibaut Courtois','Emiliano Martinez','Yassine Bounou'])]
 gk_finalists = gk_finalists[['player','season'] + gk_cols]
 gk_finalists.to_csv('data/gk_finalists.csv', index=False)
+
+outfield_finalists_2425 = outfield_finalists[outfield_finalists['season'] == 2425]
+outfield_finalists_2425.to_csv('data/2425_outfield_finalsts.csv', index=False)
