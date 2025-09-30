@@ -1,12 +1,12 @@
 import pandas as pd
 import sklearn
 import matplotlib.pyplot as plt
-from helper_functions.date_to_str import date_to_str
 
 data = pd.read_csv('data/2425_outfield_finalists.csv')
 
-data['season'] = date_to_str(data['season'].astype(str))
 data = data.sort_values(by='Expected_npxG+xAG')
+
+plt.rcParams['font.family'] = 'DejaVu Sans'
 
 plt.bar(data['player'],data['Expected_npxG+xAG'])
 plt.xlabel('Name')
