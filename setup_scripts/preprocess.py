@@ -154,7 +154,7 @@ finalists = data.merge(finalists, on=['player','season'], how='inner')
 
 finalists.to_csv('data/finalists.csv', index=False)
 
-outfield_finalists = finalists[~finalists['player'].isin(['Mike Maignan','Andre Onana','Thibaut Courtois','Emiliano Martinez','Yassine Bounou'])]
+outfield_finalists = finalists[~finalists['player'].isin(['Mike Maignan','Andre Onana','Thibaut Courtois','Emiliano Martinez','Yassine Bounou','Gianluigi Donnarumma'])]
 
 gk_cols = [
     "Performance_GA",
@@ -204,9 +204,9 @@ gk_cols = [
 outfield_finalists = outfield_finalists.drop(columns=gk_cols)
 outfield_finalists.to_csv('data/outfield_finalists.csv', index=False)
 
-gk_finalists = finalists[finalists['player'].isin(['Mike Maignan','Andre Onana','Thibaut Courtois','Emiliano Martinez','Yassine Bounou'])]
+gk_finalists = finalists[finalists['player'].isin(['Mike Maignan','Andre Onana','Thibaut Courtois','Emiliano Martinez','Yassine Bounou','Gianluigi Donnarumma'])]
 gk_finalists = gk_finalists[['player','season'] + gk_cols]
 gk_finalists.to_csv('data/gk_finalists.csv', index=False)
 
 outfield_finalists_2425 = outfield_finalists[outfield_finalists['season'] == 2425]
-outfield_finalists_2425.to_csv('data/2425_outfield_finalsts.csv', index=False)
+outfield_finalists_2425.to_csv('data/2425_outfield_finalists.csv', index=False)
