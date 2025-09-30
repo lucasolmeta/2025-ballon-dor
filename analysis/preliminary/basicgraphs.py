@@ -36,11 +36,16 @@ def bar_graph(df, x_col, y_col, xlabel, ylabel, title, graph_name):
 
     max_bar_height = ax.patches[-1].get_height()
 
+    if max_bar_height < 1:
+        round_to = .2
+    else:
+        round_to = .1
+
     for bar in ax.patches:
         height = bar.get_height() + max_bar_height * 0.015
         ax.text(
             bar.get_x() + bar.get_width() / 2, height,
-            f'{height:.1f}',
+            f'{height:{round_to}f}',
             ha='center', va='bottom', color='yellow', fontsize=8, rotation=90
         )
 
