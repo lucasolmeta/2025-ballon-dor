@@ -1,5 +1,4 @@
 import pandas as pd
-import sklearn
 import matplotlib.pyplot as plt
 
 data = pd.read_csv('data/2425_outfield_finalists.csv')
