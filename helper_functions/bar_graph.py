@@ -1,8 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def bar_graph(df, x_col, y_col, xlabel, ylabel, title, graph_name):
+def bar_graph(df, x_col, y_col, xlabel, ylabel, title, graph_name, limit_to = 0):
     df = df.sort_values(by=y_col)
+
+    if limit_to > 0:
+        df = df.iloc[-limit_to:]
 
     plt.rcParams['font.family'] = 'DejaVu Sans'
 
@@ -45,7 +48,7 @@ def bar_graph(df, x_col, y_col, xlabel, ylabel, title, graph_name):
             ha='center', va='bottom', color='yellow', fontsize=8, rotation=90
         )
 
-    ax.set_ylim(0, max(df[y_col]) * 1.12)
+    ax.set_ylim(min(df[y_col]), max(df[y_col]) * 1.12)
 
     bars = ax.bar(df[x_col], df[y_col], color='white', width=0.9)
     ax.set_xlim(-0.5, len(df[x_col]) - 0.5)

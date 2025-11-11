@@ -1,16 +1,17 @@
 import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
+from helper_functions.bar_graph import bar_graph
 
-data = pd.read_csv('data/outfield_finalists.csv')
+data = pd.read_csv("data/nominees_outfield.csv")
 
-stat_cols = data.columns[4:]
-stat_cols.remove('Voting Points')
+stat_cols = data.columns[4:].to_list()
+stat_cols.remove("Voting Points")
+stat_cols.remove("Winner")
 
-voting = data['Voting Points']
+voting = data["Voting Points"]
 
-correlation_values = [] * len(stat_cols)
+correl_df = pd.DataFrame(columns=["Column","Correlation Value"])
 
 for col in stat_cols:
-    correlation_values.append(voting.corr(data[col]))
+    correl_df.loc[len(correl_df)] = [col, abs(voting.corr(data[col]))]
 
+bar_graph(correl_df, "Column","Correlation Value", "Statistic", "Top 20 Statistics with Strongest Correlation to Voting Points", "Statistics with Strongest Correlation to Ballon d'or Voting Points","statistic_correlations", limit_to=20)
