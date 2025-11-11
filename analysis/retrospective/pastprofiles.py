@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-data = pd.read_csv('data/outfield_finalists.csv')
+data = pd.read_csv('data/nominees_outfield.csv')
 
 stat_cols = data.columns[4:]
 
@@ -10,14 +10,6 @@ for col in stat_cols:
     data[f'{col}_relative'] = data.groupby('season')[col].transform(
         lambda x: (x - x.min()) / (x.max() - x.min())
     )
-
-data.to_csv('data/test.csv')
-
-winners = [
-    ('Benzema', 2122),
-    ('Messi', 2223),
-    ('Rodri', 2324)
-]
 
 winners_df = data[data.set_index(['player', 'season']).index.isin(winners)]
 

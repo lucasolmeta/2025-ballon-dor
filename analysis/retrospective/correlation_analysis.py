@@ -14,4 +14,7 @@ correl_df = pd.DataFrame(columns=["Column","Correlation Value"])
 for col in stat_cols:
     correl_df.loc[len(correl_df)] = [col, abs(voting.corr(data[col]))]
 
+correl_df = correl_df.sort_values(by="Correlation Value")
+correl_df.to_csv("data/feature_correlations.csv", index=False)
+
 bar_graph(correl_df, "Column","Correlation Value", "Statistic", "Top 20 Statistics with Strongest Correlation to Voting Points", "Statistics with Strongest Correlation to Ballon d'or Voting Points","statistic_correlations", limit_to=20)
