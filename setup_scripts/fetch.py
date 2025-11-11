@@ -82,4 +82,4 @@ data = data.loc[:, ~data.columns.duplicated()]
 stat_cols = [c for c in data.columns if c not in ['player', 'season']]
 data = data.dropna(subset=stat_cols, how='all')
 
-data.to_csv('data/raw_data.csv', index=False)
+data.to_csv('data/full_raw_data.csv', index=False)

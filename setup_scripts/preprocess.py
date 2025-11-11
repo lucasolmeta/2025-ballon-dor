@@ -3,7 +3,7 @@ from unidecode import unidecode
 import re
 from helper_functions.date_to_str import date_to_str
 
-data = pd.read_csv('data/raw_data.csv')
+data = pd.read_csv('data/full_raw_data.csv')
 
 data.columns = data.columns.str.replace('_', ' ')
 data.columns = [
@@ -160,7 +160,7 @@ data['Finalist'] = data['Finalist'].fillna(0).astype(int)
 data['Voting Points'] = data['Voting Points'].fillna(0).astype(int)
 data['Winner'] = data['Winner'].fillna(0).astype(int)
 
-data.to_csv('data/cleaned_data.csv', index=False)
+data.to_csv('data/full_cleaned_data.csv', index=False)
 
 finalists = data[data['Finalist'] == 1]
 finalists = finalists.drop(columns='Finalist')
