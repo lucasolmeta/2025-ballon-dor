@@ -5,10 +5,10 @@ import numpy as np
 data = pd.read_csv('data/nominees_outfield.csv')
 
 data = data.rename(columns={
-    'Carries 1/3': 'Carries into Final Third', 
+    'Carries 1/3': 'Carries in the Final Third', 
     'Take-Ons Att': 'Take-On Attempts',
     'Pass Types TB': 'Through Balls',
-    'Playing Time Mn/MP': 'Minutes per Match Played',
+    'Playing Time Mn/MP': 'Minutes Per Match Played',
     'Aerial Duels Won%': 'Aerial Duel Win Percentage', 
     'Performance Fld': 'Fouls Drawn',
     'Expected Np:G-xG': 'xG Overperformance',
@@ -16,10 +16,10 @@ data = data.rename(columns={
 })
 
 stat_cols = [
-    'Carries into Final Third', 
+    'Carries in the Final Third', 
     'Take-On Attempts',
     'Through Balls',
-    'Minutes per Match Played',
+    'Minutes Per Match Played',
     'Aerial Duel Win Percentage', 
     'Fouls Drawn',
     'xG Overperformance',
@@ -87,12 +87,14 @@ ax.set_yticks([0.33,0.67])
 ax.set_yticklabels([])
 
 for i, label in enumerate(ax.get_xticklabels()):
-    if stat_cols[i] == 'Team xG Differential When On vs. Off Field':
+    if stat_cols[i] in ['Aerial Duel Win Percentage','Non-Penalty Goals and Assists Per 90']:
+        label.set_y(label.get_position()[1] - 0.2)
+    elif stat_cols[i] == 'Carries in the Final Third':
         label.set_y(label.get_position()[1] - 0.18)
-    elif stat_cols[i] in ['Shot Creation Actions via Take-Ons','Expected Assists Per 90']:
-        label.set_y(label.get_position()[1] - 0.15)
-    if stat_cols[i] in ['Take On Attempts','Carries in Final Third','Through Balls']:
-        label.set_y(label.get_position()[1] - 0.1)
+    elif stat_cols[i] == 'Minutes Per Match Played':
+        label.set_y(label.get_position()[1] - 0.12)
+    elif stat_cols[i] in ['Fouls Drawn','Take-On Attempts']:
+        label.set_y(label.get_position()[1] - 0.07)
 
 ax.legend(loc='upper left', bbox_to_anchor=(1.1, 1.1), frameon=True)
 
