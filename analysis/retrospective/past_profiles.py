@@ -45,8 +45,6 @@ profiles = pd.concat(
     ignore_index=True
 )
 
-profiles.to_csv("data/profiles.csv", index=False)
-
 for col in stat_cols:
     col_min = min(0, profiles[col].min())
     col_max = profiles[col].max()
