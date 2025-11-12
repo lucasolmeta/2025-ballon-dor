@@ -10,7 +10,7 @@ data = data.rename(columns={
     'Take-Ons Att': 'Take-On Attempts',
     'Pass Types TB': 'Through Balls',
     'Playing Time Mn/MP': 'Minutes Per Match Played',
-    'Blocks Sh': 'Blocked Shots',
+    'Blocks Sh': 'Shots Blocked',
     'Performance Fld': 'Fouls Drawn',
     'Expected Np:G-xG': 'xG Overperformance',
     'Per 90 Minutes G+A-PK': 'Non-Penalty Goals and Assists Per 90'
@@ -22,7 +22,7 @@ stat_cols = [
     'Through Balls',
     'Minutes Per Match Played',
     'Fouls Drawn',
-    'Blocked Shots', 
+    'Shots Blocked', 
     'Take-On Attempts',
     'Non-Penalty Goals and Assists Per 90'
 ]
@@ -91,7 +91,7 @@ for i, label in enumerate(ax.get_xticklabels()):
         label.set_y(label.get_position()[1] - 0.18)
     elif stat_cols[i] in ['Minutes Per Match Played', 'xG Overperformance']:
         label.set_y(label.get_position()[1] - 0.12)
-    elif stat_cols[i] in ['Fouls Drawn','Blocked Shots',]:
+    elif stat_cols[i] in ['Fouls Drawn','Shots Blocked',]:
         label.set_y(label.get_position()[1] - 0.07)
 
 ax.legend(loc='upper left', bbox_to_anchor=(1.1, 1.1), frameon=True)
