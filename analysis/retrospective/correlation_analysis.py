@@ -3,6 +3,8 @@ from helper_functions.bar_graph import bar_graph
 
 data = pd.read_csv("data/nominees_outfield.csv")
 
+data = data[data['Season'] != '2024-2025']
+
 stat_cols = data.columns[4:].to_list()
 stat_cols.remove("Voting Points")
 stat_cols.remove("Winner")

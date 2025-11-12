@@ -5,25 +5,25 @@ import numpy as np
 data = pd.read_csv('data/nominees_outfield.csv')
 
 data = data.rename(columns={
-    'Take-Ons Att':'Take On Attempts',
-    'Carries 1/3':'Carries in Final Third',
-    'PPA':'Passes into Penalty Area',
-    'Pass Types TB':'Through Balls',
-    'Per 90 Minutes XAG':'Expected Assists Per 90',
-    'Team Success (xG) On-Off':'Team xG Differential When On vs. Off Field',
-    'Standard SoT':'Shots on Target',
-    'SCA Types TO':'Shot Creation Actions via Take-Ons'
+    'Carries 1/3': 'Carries into Final Third', 
+    'Take-Ons Att': 'Take-On Attempts',
+    'Pass Types TB': 'Through Balls',
+    'Playing Time Mn/MP': 'Minutes per Match Played',
+    'Aerial Duels Won%': 'Aerial Duel Win Percentage', 
+    'Performance Fld': 'Fouls Drawn',
+    'Expected Np:G-xG': 'xG Overperformance',
+    'Per 90 Minutes G+A-PK': 'Non-Penalty Goals and Assists Per 90'
 })
 
 stat_cols = [
-    'Take On Attempts',
-    'Carries in Final Third',
-    'Passes into Penalty Area',
+    'Carries into Final Third', 
+    'Take-On Attempts',
     'Through Balls',
-    'Expected Assists Per 90',
-    'Team xG Differential When On vs. Off Field',
-    'Shots on Target',
-    'Shot Creation Actions via Take-Ons'
+    'Minutes per Match Played',
+    'Aerial Duel Win Percentage', 
+    'Fouls Drawn',
+    'xG Overperformance',
+    'Non-Penalty Goals and Assists Per 90'
 ]
 
 data = data[stat_cols + ['Name','Season','Winner']]
