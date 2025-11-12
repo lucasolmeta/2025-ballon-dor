@@ -6,8 +6,14 @@ data = pd.read_csv("data/nominees_outfield.csv")
 data = data[data['Season'] != '2024-2025']
 
 stat_cols = data.columns[4:].to_list()
+
 stat_cols.remove("Voting Points")
 stat_cols.remove("Winner")
+stat_cols.remove("League Winner")
+stat_cols.remove("UCL Winner")
+stat_cols.remove("Cup Winner")
+stat_cols.remove("Major International Continental Trophy Winner")
+stat_cols.remove("World Cup Winner")
 
 voting = data["Voting Points"]
 
