@@ -7,13 +7,12 @@ def bar_graph(df, x_col, y_col, xlabel, ylabel, title, graph_name, limit_to = 0)
     if limit_to > 0:
         df = df.iloc[-limit_to:]
 
+    fig, ax = plt.subplots(figsize=(8, 8))
+
     plt.rcParams['font.family'] = 'DejaVu Sans'
 
     plt.bar(df[x_col], df[y_col])
     plt.xticks(rotation=90)
-
-    fig = plt.gcf()
-    ax = plt.gca()
 
     fig.patch.set_facecolor('black')
     ax.set_facecolor('black')

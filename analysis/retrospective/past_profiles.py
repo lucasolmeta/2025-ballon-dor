@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
 from helper_functions.bar_graph import bar_graph
 
 data = pd.read_csv('data/nominees_outfield.csv')
@@ -59,12 +60,20 @@ angles += [angles[0]]
 
 fig, ax = plt.subplots(figsize=(8, 8), subplot_kw=dict(polar=True))
 
+fig.patch.set_facecolor('black')
+ax.set_facecolor('black')
+ax.spines['polar'].set_color('yellow')
+ax.spines['polar'].set_linewidth(4)
+ax.tick_params(colors='white', labelsize=8)
+
+ax.grid(color='white', linestyle='-', linewidth=0.6)
+
 colors = {
-    'Average Previous Winner': '#000000',
-    'Lamine Yamal': '#E69F00',
+    'Average Previous Winner': '#ffffff',
+    'Lamine Yamal': '#CC79A7',
     'Ousmane Dembele': '#56B4E9',
     'Mohamed Salah': '#009E73',
-    'Raphinha': '#D55E00'
+    'Raphinha': '#BB6BD9'
 }
 
 ax.set_ylim(0, 1)
@@ -72,9 +81,9 @@ ax.tick_params(pad=12)
 ax.spines['polar'].set_linewidth(4)
 
 ax.set_xticks(angles[:-1])
-ax.set_xticklabels(stat_cols, fontsize=8)
-ax.set_yticks([0.33,0.67])
-ax.set_yticklabels([])
+ax.set_xticklabels(stat_cols, fontsize=8, color='white')
+ax.set_yticks([0.33, 0.67])
+ax.set_yticklabels([], color='white')
 
 for label, row in profiles.groupby('Name'):
     vals = row.iloc[0][stat_cols].tolist()
@@ -94,6 +103,18 @@ for i, label in enumerate(ax.get_xticklabels()):
     elif stat_cols[i] in ['Fouls Drawn','Shots Blocked',]:
         label.set_y(label.get_position()[1] - 0.07)
 
-ax.legend(loc='upper left', bbox_to_anchor=(1.1, 1.1), frameon=True)
+ax.legend(loc='upper left', bbox_to_anchor=(1.1, 1.1), frameon=True, facecolor='black', edgecolor='yellow', labelcolor='white')
 
 plt.savefig(f'analysis/graphs/winner_spider.png', dpi=300, bbox_inches='tight')
+
+similarity_scores = pd.DataFrame(columns=['Name','Similarity Score'])
+
+for name in ['Lamine Yamal','Ousmane Dembele','Mohamed Salah','Raphinha']:
+    player_vector = profiles.loc[profiles['Name'] == name, stat_cols].to_numpy().reshape(1, -1)
+    avg_winner_vector = profiles.loc[profiles['Name'] == 'Average Previous Winner', stat_cols].to_numpy().reshape(1, -1)
+
+    similarity = cosine_similarity(player_vector, avg_winner_vector)[0][0]
+
+    similarity_scores.loc[len(similarity_scores)] = [name, float(similarity)]
+
+bar_graph(similarity_scores, 'Name','Similarity Score','Player','Similarity to Average Past Winner Profile','Similarity to Average Past Winner Profile Per Player','similarity_scores')
