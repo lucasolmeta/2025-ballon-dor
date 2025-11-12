@@ -66,7 +66,7 @@ colors = {
 
 ax.set_ylim(0, 1)
 ax.tick_params(pad=12)
-ax.spines['polar'].set_linewidth(3)
+ax.spines['polar'].set_linewidth(4)
 
 ax.set_xticks(angles[:-1])
 ax.set_xticklabels(stat_cols, fontsize=8)
