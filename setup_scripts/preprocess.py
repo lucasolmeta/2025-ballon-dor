@@ -160,6 +160,8 @@ data['Finalist'] = data['Finalist'].fillna(0).astype(int)
 data['Voting Points'] = data['Voting Points'].fillna(0).astype(int)
 data['Winner'] = data['Winner'].fillna(0).astype(int)
 
+data['Aerial Duels Won%'] = data['Aerial Duels Won'] / (data['Aerial Duels Won'] + data['Aerial Duels Lost']) * 100
+
 data.to_csv('data/full_cleaned_data.csv', index=False)
 
 finalists = data[data['Finalist'] == 1]

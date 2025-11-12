@@ -1,8 +1,20 @@
 import pandas as pd
+from helper_functions.bar_graph import bar_graph
 
-data = pd.read_csv('data/nominees.csv')
+data = pd.read_csv("data/nominees_outfield.csv")
 
-data = data[(data['Winner'] == 1) & (data['Season'] != '2024-2025')]
-data = data[['Name','Carries 1/3']]
+data = data[data['Season'] != '2024-2025']
 
-print(data)
+stat_cols = data.columns[4:].to_list()
+stat_cols.remove("Voting Points")
+stat_cols.remove("Winner")
+
+voting = data["Voting Points"]
+
+correl_df = pd.DataFrame(columns=["Column","Correlation Value"])
+
+for col in stat_cols:
+    correl_df.loc[len(correl_df)] = [col, voting.corr(data[col])]
+
+correl_df = correl_df.sort_values(by="Correlation Value")
+correl_df.to_csv("data/nonabs_feature_correlations.csv", index=False)
