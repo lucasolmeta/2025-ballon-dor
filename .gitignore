@@ -6,3 +6,22 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python tooling
+.python-version
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Editor/IDE
+.vscode/
+.idea/
+
