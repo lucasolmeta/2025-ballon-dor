@@ -1,0 +1,2 @@
+season,model,n_boot,temperature,top1_gap_median,top1_gap_p05,top1_gap_p95,p_top1_gap_gt_0p02,winner_gap_median,winner_gap_p05,winner_gap_p95,p_winner_rank1
+2024-2025,performance_only_logtarget,800,3.0,0.024341772039215566,0.001844175238925044,0.14095676717376673,0.56375,-0.05601460971815457,-0.16172233049309526,0.010311952840742024,0.0925

@@ -1,0 +1,7 @@
+model,alpha,val_spearman,val_pairwise_acc
+performance_only_all_per90_durability,100.0,0.3582604655188799,0.6178660049627791
+performance_only_all_per90_durability,1000.0,0.3104595505872,0.6054590570719603
+performance_only_all_per90_durability,10.0,0.29887891655736,0.6004962779156328
+performance_only_all_per90_durability,0.01,0.2932117977768,0.5905707196029777
+performance_only_all_per90_durability,0.1,0.28828386840239995,0.5955334987593052
+performance_only_all_per90_durability,1.0,0.28409512843415996,0.5905707196029777

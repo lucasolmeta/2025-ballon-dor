@@ -1,0 +1,14 @@
+model,temperature,mse
+performance_only_logtarget,3.0,0.001143141484449936
+performance_only_logtarget,2.0,0.001178609942766798
+performance_only_logtarget,5.0,0.0015706407428888911
+performance_only_logtarget,1.4,0.0028150804223838924
+performance_only_logtarget,1.0,0.007691205450900762
+performance_only_logtarget,0.7,0.015847444218237326
+performance_only_logtarget,0.5,0.0221219182935679
+performance_only_logtarget,0.35,0.025271032189686002
+performance_only_logtarget,0.25,0.026173701599008704
+performance_only_logtarget,0.18,0.026347409345890038
+performance_only_logtarget,0.12,0.026366109899764765
+performance_only_logtarget,0.08,0.026366421831115115
+performance_only_logtarget,0.05,0.026366422494281918

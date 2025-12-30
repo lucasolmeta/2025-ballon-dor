@@ -1,0 +1,14 @@
+model,temperature,mse
+performance_only_min_durability,0.08,0.0022621560861460065
+performance_only_min_durability,0.12,0.002288446846756177
+performance_only_min_durability,0.18,0.0023335580610548625
+performance_only_min_durability,0.05,0.002356199385028355
+performance_only_min_durability,0.25,0.0023677377677642
+performance_only_min_durability,0.35,0.002396732889391166
+performance_only_min_durability,0.5,0.0024205728114732746
+performance_only_min_durability,0.7,0.002437442073985794
+performance_only_min_durability,1.0,0.002450598908695396
+performance_only_min_durability,1.4,0.0024596081918314195
+performance_only_min_durability,2.0,0.0024664892700881824
+performance_only_min_durability,3.0,0.00247191441135089
+performance_only_min_durability,5.0,0.0024763004641635226

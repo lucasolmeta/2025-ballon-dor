@@ -1,0 +1,2 @@
+season,model,n_boot,temperature,top1_gap_median,top1_gap_p05,top1_gap_p95,p_top1_gap_gt_0p02,winner_gap_median,winner_gap_p05,winner_gap_p95,p_winner_rank1
+2024-2025,with_trophies,800,0.08,0.0105789700552761,0.0009070846989724401,0.041188368830116215,0.27,0.004007338164940387,-0.02908574541139567,0.039674373782962374,0.5675
