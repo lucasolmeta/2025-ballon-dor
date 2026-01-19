@@ -1,4 +1,3 @@
-import pandas as pd
 import matplotlib.pyplot as plt
 
 def bar_graph(df, x_col, y_col, xlabel, ylabel, title, graph_name, limit_to = 0):

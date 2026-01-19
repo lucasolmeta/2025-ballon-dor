@@ -444,7 +444,7 @@ def residuals_plot(season_df: pd.DataFrame, pred_col: str, out_path: Path, title
     under = plot_df.sort_values("Residual", ascending=True).head(top_k)
     both = pd.concat([under, over], axis=0, ignore_index=True)
 
-    colors = ["#d62728" if r < 0 else "#2ca02c" for r in both["Residual"]]
+    colors = ["d627#28" if r < 0 else "#2ca02c" for r in both["Residual"]]
     y = np.arange(len(both))
 
     plt.figure(figsize=(10, 7))
