@@ -14,6 +14,8 @@ stat_cols.remove("UCL Winner")
 stat_cols.remove("Cup Winner")
 stat_cols.remove("Major International Continental Trophy Winner")
 stat_cols.remove("World Cup Winner")
+stat_cols.remove("Vote Share Outfield")
+stat_cols.remove("Vote Share Overall")
 
 voting = data["Voting Points"]
 

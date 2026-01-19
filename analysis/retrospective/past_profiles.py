@@ -60,31 +60,36 @@ angles += [angles[0]]
 
 fig, ax = plt.subplots(figsize=(8, 8), subplot_kw=dict(polar=True))
 
-fig.patch.set_facecolor('black')
-ax.set_facecolor('#111111')
-ax.spines['polar'].set_color('white')
 ax.spines['polar'].set_linewidth(4)
-ax.tick_params(colors='white', labelsize=8)
+ax.tick_params(labelsize=8)
 
-ax.grid(color='#555555', linestyle='-', linewidth=0.6)
+ax.grid(linestyle='-', linewidth=0.6)
 
 colors = {
-    'Average Previous Winner': 'yellow',
-    'Lamine Yamal': '#CC79A7',
-    'Ousmane Dembele': '#56B4E9',
-    'Mohamed Salah': '#009E73',
-    'Raphinha': '#BB6BD9'
+    'Average Previous Winner': '#1B2A41',
+    'Lamine Yamal': '#E09F3E',
+    'Ousmane Dembele': '#3A86A8',
+    'Mohamed Salah': '#6D597A',
+    'Raphinha': '#8D99AE'
+}
+
+markers = {
+    'Average Previous Winner': 'o',
+    'Lamine Yamal': 's',
+    'Ousmane Dembele': '^',
+    'Mohamed Salah': 'D',
+    'Raphinha': 'X'
 }
 
 ax.set_ylim(0, 1)
 ax.tick_params(pad=12)
 ax.spines['polar'].set_linewidth(4)
 
-ax.set_xticklabels(stat_cols, fontsize=9, color='#FFD700', fontweight='medium')
+ax.set_xticklabels(stat_cols, fontsize=9, fontweight='medium')
 
 ax.set_yticklabels([])
 ax.set_yticks([0.25, 0.5, 0.75, 1])
-ax.tick_params(colors='white', labelsize=8)
+ax.tick_params(labelsize=8)
 
 for label, row in profiles.groupby('Name'):
     vals = row.iloc[0][stat_cols].tolist()
@@ -92,7 +97,19 @@ for label, row in profiles.groupby('Name'):
     lw = 2
 
     color = colors.get(label, 'gray')
-    ax.plot(angles, vals, color=color, linewidth=lw, label=label)
+
+    ax.plot(
+        angles,
+        vals,
+        color=color,
+        linewidth=lw,
+        alpha=0.75,
+        marker=markers.get(label, 'o'),
+        markersize=5,
+        markeredgewidth=0.9,
+        markerfacecolor='white',
+        label=label
+    )
 
 for i, label in enumerate(ax.get_xticklabels()):
     if stat_cols[i] == 'Non-Penalty Goals and Assists Per 90':
@@ -104,7 +121,7 @@ for i, label in enumerate(ax.get_xticklabels()):
     elif stat_cols[i] in ['Fouls Drawn','Shots Blocked',]:
         label.set_y(label.get_position()[1] - 0.07)
 
-ax.legend(loc='upper left', bbox_to_anchor=(1.1, 1.1), frameon=True, facecolor='black', edgecolor='white', labelcolor='white')
+ax.legend(loc='upper left', bbox_to_anchor=(1.1, 1.1), frameon=True)
 
 plt.savefig(f'analysis/graphs/winner_spider.png', dpi=300, bbox_inches='tight')
 
