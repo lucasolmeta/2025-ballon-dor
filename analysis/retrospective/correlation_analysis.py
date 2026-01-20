@@ -17,14 +17,20 @@ stat_cols.remove("World Cup Winner")
 stat_cols.remove("Vote Share Outfield")
 stat_cols.remove("Vote Share Overall")
 
-voting = data["Voting Points"]
+voting = data["Vote Share Outfield"]
 
 correl_df = pd.DataFrame(columns=["Column","Correlation Value"])
+abs_correl_df = pd.DataFrame(columns=["Column","Correlation Value"])
 
 for col in stat_cols:
-    correl_df.loc[len(correl_df)] = [col, abs(voting.corr(data[col]))]
+    correl_df.loc[len(correl_df)] = [col, voting.corr(data[col])]
+    abs_correl_df.loc[len(abs_correl_df)] = [col, abs(voting.corr(data[col]))]
 
 correl_df = correl_df.sort_values(by="Correlation Value")
 correl_df.to_csv("data/feature_correlations.csv", index=False)
 
-bar_graph(correl_df, "Column","Correlation Value", "Statistic", "Top 20 Statistics with Strongest Correlation to Voting Points", "Statistics with Strongest Correlation to Ballon d'or Voting Points","statistic_correlations", limit_to=20)
+abs_correl_df = abs_correl_df.sort_values(by="Correlation Value")
+abs_correl_df.to_csv("data/abs_feature_correlations.csv", index=False)
+
+bar_graph(correl_df, "Column","Correlation Value", "Outfield Voting Share", "Top 20 Features with Strongest Positive Correlation to Outfield Voting Share", "Features with Strongest Positive Correlation to Ballon d'or Outfield Voting Share","feature_correlations", limit_to=20)
+bar_graph(abs_correl_df, "Column","Correlation Value", "Outfield Voting Share", "Top 20 Features with Strongest Correlation to Outfield Voting Share", "Features with Strongest Correlation to Ballon d'or Outfield Voting Share","abs_feature_correlations", limit_to=20)
