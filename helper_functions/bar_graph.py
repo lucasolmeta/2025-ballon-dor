@@ -1,6 +1,9 @@
 import matplotlib.pyplot as plt
 
-def bar_graph(df, x_col, y_col, xlabel, ylabel, title, graph_name, limit_to = 0):
+def bar_graph(df, x_col, y_col, xlabel, ylabel, title, graph_name, limit_to = 0, minimum = None):
+    if minimum is None:
+        minimum = min(df[y_col])
+
     df = df.sort_values(by=y_col)
 
     if limit_to > 0:
@@ -32,11 +35,11 @@ def bar_graph(df, x_col, y_col, xlabel, ylabel, title, graph_name, limit_to = 0)
         height = bar.get_height() + max_bar_height * 0.015
         ax.text(
             bar.get_x() + bar.get_width() / 2, height,
-            f'{height:{round_to}f}',
+            f'{bar.get_height():{round_to}f}',
             ha='center', va='bottom', fontsize=8, rotation=90
         )
 
-    ax.set_ylim(min(df[y_col]), max(df[y_col]) * 1.12)
+    ax.set_ylim(minimum, max(df[y_col]) * 1.12)
     ax.set_xlim(-0.5, len(df[x_col]) - 0.5)
 
     plt.savefig(f'analysis/graphs/{graph_name}.png', dpi=300, bbox_inches='tight')
