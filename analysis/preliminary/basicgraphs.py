@@ -13,4 +13,4 @@ bar_graph(data, 'Name', 'Touches Live', 'Name','Touches from Open Play', "2025 O
 data['Take-Ons Succ%'] = data['Take-Ons Succ'] / data['Take-Ons Att'] * 100
 
 bar_graph(data, 'Name', 'Take-Ons Succ%', 'Name','Successful Take-On %', "2025 Outfield Ballon d'Or Nominees Ranked by Successful Take-On %",'successful_take_on_percent', minimum=0)
-bar_graph(data, 'Name', 'SCA SCA90', 'Name','Shot Creating Actions per 90', "2025 Outfield Ballon d'Or Nominees Ranked by Shot Creating Actions per 90",'SCA_per90', minimum=0)
+bar_graph(data, 'Name', 'SCA SCA90', 'Name','Shot Creating Actions per 90', "2025 Outfield Ballon d'Or Nominees Ranked by Shot Creating Actions Per 90",'SCA_per90', minimum=0)
