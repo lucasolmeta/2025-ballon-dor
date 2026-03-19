@@ -32,5 +32,5 @@ correl_df.to_csv("data/feature_correlations.csv", index=False)
 abs_correl_df = abs_correl_df.sort_values(by="Correlation Value")
 abs_correl_df.to_csv("data/abs_feature_correlations.csv", index=False)
 
-bar_graph(correl_df, "Column","Correlation Value", "Outfield Voting Share", "Top 20 Features with Strongest Positive Correlation to Outfield Voting Share", "Features with Strongest Positive Correlation to Ballon d'or Outfield Voting Share","feature_correlations", limit_to=20)
-bar_graph(abs_correl_df, "Column","Correlation Value", "Outfield Voting Share", "Top 20 Features with Strongest Correlation to Outfield Voting Share", "Features with Strongest Correlation to Ballon d'or Outfield Voting Share","abs_feature_correlations", limit_to=20)
+bar_graph(correl_df, "Column","Correlation Value", "Outfield Voting Share", "Top 20 Features with Strongest Positive Correlation to Outfield Voting Share", "Features with Strongest Positive Correlation to Ballon d'or Outfield Voting Share","feature_correlations", limit_to=30)
+bar_graph(abs_correl_df, "Column","Correlation Value", "Outfield Voting Share", "Top 20 Features with Strongest Correlation to Outfield Voting Share", "Features with Strongest Correlation to Ballon d'or Outfield Voting Share","abs_feature_correlations", limit_to=30)
