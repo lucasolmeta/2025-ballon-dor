@@ -1,0 +1,2 @@
+season,model,n_boot,temperature,top1_gap_median,top1_gap_p05,top1_gap_p95,p_top1_gap_gt_0p02,winner_gap_median,winner_gap_p05,winner_gap_p95,p_winner_rank1
+2024-2025,performance_only_all_per90_durability,800,0.12,0.026616587187521155,0.0026492752841925957,0.06788226774548191,0.62375,0.02634201047354649,-0.00895568309099213,0.06788226774548191,0.89625

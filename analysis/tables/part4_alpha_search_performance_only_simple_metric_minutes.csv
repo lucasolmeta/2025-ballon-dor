@@ -1,7 +1,7 @@
 model,alpha,val_spearman,val_pairwise_acc
-performance_only_simple_metric_minutes,1000.0,0.23407664528399996,0.5930521091811415
-performance_only_simple_metric_minutes,1.0,0.21756808187975998,0.5880893300248139
-performance_only_simple_metric_minutes,10.0,0.21436492778639998,0.5831265508684863
-performance_only_simple_metric_minutes,100.0,0.21239375603663999,0.5806451612903226
-performance_only_simple_metric_minutes,0.01,0.21140817016175997,0.5856079404466501
-performance_only_simple_metric_minutes,0.1,0.21140817016175997,0.5856079404466501
+performance_only_simple_metric_minutes,1000.0,0.3055316212128,0.6253101736972705
+performance_only_simple_metric_minutes,100.0,0.2981397271512,0.6178660049627791
+performance_only_simple_metric_minutes,10.0,0.2735000802791999,0.6129032258064516
+performance_only_simple_metric_minutes,0.01,0.26783296149864,0.607940446650124
+performance_only_simple_metric_minutes,0.1,0.26783296149864,0.607940446650124
+performance_only_simple_metric_minutes,1.0,0.26783296149864,0.607940446650124
